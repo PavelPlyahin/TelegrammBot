@@ -3,7 +3,7 @@ from telebot import types
 import webbrowser
 
 bot = telebot.TeleBot('7254958470:AAE_Czh0Xhc-VFQAf8CiiHxbAOU88fnT3zE')
-
+is_clicked = False
 @bot.message_handler(commands=['start'])
 def start(message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -17,6 +17,7 @@ def start(message):
     bot.register_next_step_handler(message, on_click)
 
 
+@bot.message_handler(func=lambda message: True)
 def on_click(message):
     if message.text == 'Перейти на сайт':
         bot.send_message(message.chat.id, 'https://vk.com/bankanakazachey')
