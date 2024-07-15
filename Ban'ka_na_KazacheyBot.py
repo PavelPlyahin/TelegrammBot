@@ -17,6 +17,7 @@ def start(message):
     bot.send_message(message.chat.id, f' Рад новому знакомству, {message.from_user.first_name}')
     bot.register_next_step_handler(message, on_click)
 
+
 def on_click(message):
     if message.text == 'Перейти на сайт':
         bot.send_message(message.chat.id, 'https://vk.com/bankanakazachey')
@@ -30,5 +31,6 @@ def on_click(message):
     elif message.text == 'Бронирование':
         bot.send_message(message.chat.id, 'https://vk.com/app5708398_-101755861?ref=group_menu')
         webbrowser.open('https://vk.com/app5708398_-101755861?ref=group_menu')
+
 
 bot.polling(none_stop=True, interval=0)
