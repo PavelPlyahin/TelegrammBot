@@ -13,31 +13,35 @@ def start(message):
     btn4 = types.InlineKeyboardButton('Бронирование', url='https://vk.com/app5708398_-101755861?ref=group_menu')
     keyboard.add(btn1, btn2, btn3, btn4)
     bot.send_message(message.chat.id, 'Здравствуйте', reply_markup=keyboard)
-    bot.send_message(message.chat.id, f' Рад новому знакомству, {message.from_user.first_name}')
+    bot.send_message(message.chat.id, f' Рад новому знакомству!, {message.from_user.first_name}')
     bot.register_next_step_handler(message, on_click)
 
 
 @bot.message_handler(func=lambda message: True)
 def on_click(message):
-    if message.text == 'Перейти на сайт':
-        bot.send_message(message.chat.id, 'https://vk.com/bankanakazachey')
-        webbrowser.open('https://vk.com/bankanakazachey', new=2, autoraise=True)
-    elif message.text == 'Отзывы о нас':
-        bot.send_message(message.chat.id, 'https://vk.com/topic-101755861_35810811')
-        webbrowser.open('https://vk.com/topic-101755861_35810811')
-    elif message.text == 'Фотогалерея':
-        bot.send_message(message.chat.id, 'https://vk.com/album-101755861_220862100')
-        webbrowser.open('https://vk.com/album-101755861_220862100')
-    elif message.text == 'Бронирование':
-        bot.send_message(message.chat.id, 'https://vk.com/app5708398_-101755861?ref=group_menu')
-        webbrowser.open('https://vk.com/app5708398_-101755861?ref=group_menu')
+    if message.text in ('Перейти на сайт', 'Отзывы о нас', 'Фотогалерея', 'Бронирование'):
+        if message.text == 'Перейти на сайт':
+            bot.send_message(message.chat.id, 'https://vk.com/bankanakazachey')
+            webbrowser.open('https://vk.com/bankanakazachey', new=2, autoraise=True)
+        elif message.text == 'Отзывы о нас':
+            bot.send_message(message.chat.id, 'https://vk.com/topic-101755861_35810811')
+            webbrowser.open('https://vk.com/topic-101755861_35810811')
+        elif message.text == 'Фотогалерея':
+            bot.send_message(message.chat.id, 'https://vk.com/album-101755861_220862100')
+            webbrowser.open('https://vk.com/album-101755861_220862100')
+        elif message.text == 'Бронирование':
+            bot.send_message(message.chat.id, 'https://vk.com/app5708398_-101755861?ref=group_menu')
+            webbrowser.open('https://vk.com/app5708398_-101755861?ref=group_menu')
+
+    else:
+        pass  # Ничего не делать
 
 
     # Функция для обработки сообщения
-    if message.text in questions:
-        bot.send_message(message.chat.id, questions[message.text])
-    else:
-        bot.send_message(message.chat.id, "Извините, я вас не понял. Попробуйте задать другой вопрос.")
+        if message.text in questions:
+            bot.send_message(message.chat.id, questions[message.text])
+        else:
+            bot.send_message(message.chat.id, "Извините, я вас не понял. Попробуйте задать другой вопрос.")
 
 
 # Массив с вопросами и ответами
