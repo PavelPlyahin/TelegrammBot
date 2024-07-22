@@ -66,7 +66,7 @@ def on_click(message):
             webbrowser.open_new_tab('https://vk.com/album-101755861_220862100')
         elif message.text == 'Предворительная запись':
             bot.send_message(message.chat.id, 'https://vk.com/app5708398_-101755861?ref=group_menu')
-            webbrowser.open('https://vk.com/app5708398_-101755861?ref=group_menu')
+            webbrowser.open_new_tab('https://vk.com/app5708398_-101755861?ref=group_menu')
         elif message.text == 'Online Брoнь':
             bot.send_message(message.chat.id, 'https://calendar.app.google/GWVQvmkASAAeEfMo6')
             webbrowser.open_new_tab('https://calendar.app.google/GWVQvmkASAAeEfMo6')
